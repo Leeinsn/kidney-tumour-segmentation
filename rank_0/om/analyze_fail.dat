@@ -1,0 +1,944 @@
+# 1.This file shows the parsed IR info when graph evaluating failed to help find the problem.
+# 2.You can search the last `------------------------>` to the node which is inferred failed.
+# 3.Refer to https://www.mindspore.cn/search?inputValue=analyze_fail.dat to get more instructions.
+# ===============================================================================
+
+# [No.1] construct_wrapper.40
+# In file /home/zhangyt/kits19/model/utils.py(221)/    def construct(self, *inputs):/
+funcgraph fg_40(
+        %para1 : Tensor(F32)[4, 1, 256, 256]    # inputs0
+        , %para2 : Tensor(F32)[4, 3, 256, 256]    # inputs1
+        , %para3 : Ref[Tensor(F32)][32, 1, 3, 3]    # conv0.convs.0.0.weight
+        , %para4 : Ref[Tensor(F32)][32]    # conv0.convs.0.1.gamma
+        , %para5 : Ref[Tensor(F32)][32]    # conv0.convs.0.1.beta
+        , %para6 : Ref[Tensor(F32)][32, 32, 3, 3]    # conv0.convs.1.0.weight
+        , %para7 : Ref[Tensor(F32)][32]    # conv0.convs.1.1.gamma
+        , %para8 : Ref[Tensor(F32)][32]    # conv0.convs.1.1.beta
+        , %para9 : Ref[Tensor(F32)][64, 32, 3, 3]    # conv1.convs.0.0.weight
+        , %para10 : Ref[Tensor(F32)][64]    # conv1.convs.0.1.gamma
+        , %para11 : Ref[Tensor(F32)][64]    # conv1.convs.0.1.beta
+        , %para12 : Ref[Tensor(F32)][64, 64, 3, 3]    # conv1.convs.1.0.weight
+        , %para13 : Ref[Tensor(F32)][64]    # conv1.convs.1.1.gamma
+        , %para14 : Ref[Tensor(F32)][64]    # conv1.convs.1.1.beta
+        , %para15 : Ref[Tensor(F32)][128, 64, 3, 3]    # conv2.convs.0.0.weight
+        , %para16 : Ref[Tensor(F32)][128]    # conv2.convs.0.1.gamma
+        , %para17 : Ref[Tensor(F32)][128]    # conv2.convs.0.1.beta
+        , %para18 : Ref[Tensor(F32)][128, 128, 3, 3]    # conv2.convs.1.0.weight
+        , %para19 : Ref[Tensor(F32)][128]    # conv2.convs.1.1.gamma
+        , %para20 : Ref[Tensor(F32)][128]    # conv2.convs.1.1.beta
+        , %para21 : Ref[Tensor(F32)][256, 128, 3, 3]    # conv3.convs.0.0.weight
+        , %para22 : Ref[Tensor(F32)][256]    # conv3.convs.0.1.gamma
+        , %para23 : Ref[Tensor(F32)][256]    # conv3.convs.0.1.beta
+        , %para24 : Ref[Tensor(F32)][256, 256, 3, 3]    # conv3.convs.1.0.weight
+        , %para25 : Ref[Tensor(F32)][256]    # conv3.convs.1.1.gamma
+        , %para26 : Ref[Tensor(F32)][256]    # conv3.convs.1.1.beta
+        , %para27 : Ref[Tensor(F32)][512, 256, 3, 3]    # conv4.convs.0.0.weight
+        , %para28 : Ref[Tensor(F32)][512]    # conv4.convs.0.1.gamma
+        , %para29 : Ref[Tensor(F32)][512]    # conv4.convs.0.1.beta
+        , %para30 : Ref[Tensor(F32)][512, 512, 3, 3]    # conv4.convs.1.0.weight
+        , %para31 : Ref[Tensor(F32)][512]    # conv4.convs.1.1.gamma
+        , %para32 : Ref[Tensor(F32)][512]    # conv4.convs.1.1.beta
+        , %para33 : Ref[Tensor(F32)][32, 64, 3, 3]    # up_concat1.conv.convs.0.0.weight
+        , %para34 : Ref[Tensor(F32)][32, 32, 3, 3]    # up_concat1.conv.convs.1.0.weight
+        , %para35 : Ref[Tensor(F32)][64, 32, 2, 2]    # up_concat1.up_conv.weight
+        , %para36 : Ref[Tensor(F32)][64, 128, 3, 3]    # up_concat2.conv.convs.0.0.weight
+        , %para37 : Ref[Tensor(F32)][64, 64, 3, 3]    # up_concat2.conv.convs.1.0.weight
+        , %para38 : Ref[Tensor(F32)][128, 64, 2, 2]    # up_concat2.up_conv.weight
+        , %para39 : Ref[Tensor(F32)][128, 256, 3, 3]    # up_concat3.conv.convs.0.0.weight
+        , %para40 : Ref[Tensor(F32)][128, 128, 3, 3]    # up_concat3.conv.convs.1.0.weight
+        , %para41 : Ref[Tensor(F32)][256, 128, 2, 2]    # up_concat3.up_conv.weight
+        , %para42 : Ref[Tensor(F32)][256, 512, 3, 3]    # up_concat4.conv.convs.0.0.weight
+        , %para43 : Ref[Tensor(F32)][256, 256, 3, 3]    # up_concat4.conv.convs.1.0.weight
+        , %para44 : Ref[Tensor(F32)][512, 256, 2, 2]    # up_concat4.up_conv.weight
+        , %para45 : Ref[Tensor(F32)][3, 32, 1, 1]    # final.weight
+        , %para46 : Ref[Tensor(F32)][1]    # beta1_power
+        , %para47 : Ref[Tensor(F32)][1]    # beta2_power
+        , %para48 : Ref[Tensor(F32)][32, 1, 3, 3]    # moment1.conv0.convs.0.0.weight
+        , %para49 : Ref[Tensor(F32)][32]    # moment1.conv0.convs.0.1.gamma
+        , %para50 : Ref[Tensor(F32)][32]    # moment1.conv0.convs.0.1.beta
+        , %para51 : Ref[Tensor(F32)][32, 32, 3, 3]    # moment1.conv0.convs.1.0.weight
+        , %para52 : Ref[Tensor(F32)][32]    # moment1.conv0.convs.1.1.gamma
+        , %para53 : Ref[Tensor(F32)][32]    # moment1.conv0.convs.1.1.beta
+        , %para54 : Ref[Tensor(F32)][64, 32, 3, 3]    # moment1.conv1.convs.0.0.weight
+        , %para55 : Ref[Tensor(F32)][64]    # moment1.conv1.convs.0.1.gamma
+        , %para56 : Ref[Tensor(F32)][64]    # moment1.conv1.convs.0.1.beta
+        , %para57 : Ref[Tensor(F32)][64, 64, 3, 3]    # moment1.conv1.convs.1.0.weight
+        , %para58 : Ref[Tensor(F32)][64]    # moment1.conv1.convs.1.1.gamma
+        , %para59 : Ref[Tensor(F32)][64]    # moment1.conv1.convs.1.1.beta
+        , %para60 : Ref[Tensor(F32)][128, 64, 3, 3]    # moment1.conv2.convs.0.0.weight
+        , %para61 : Ref[Tensor(F32)][128]    # moment1.conv2.convs.0.1.gamma
+        , %para62 : Ref[Tensor(F32)][128]    # moment1.conv2.convs.0.1.beta
+        , %para63 : Ref[Tensor(F32)][128, 128, 3, 3]    # moment1.conv2.convs.1.0.weight
+        , %para64 : Ref[Tensor(F32)][128]    # moment1.conv2.convs.1.1.gamma
+        , %para65 : Ref[Tensor(F32)][128]    # moment1.conv2.convs.1.1.beta
+        , %para66 : Ref[Tensor(F32)][256, 128, 3, 3]    # moment1.conv3.convs.0.0.weight
+        , %para67 : Ref[Tensor(F32)][256]    # moment1.conv3.convs.0.1.gamma
+        , %para68 : Ref[Tensor(F32)][256]    # moment1.conv3.convs.0.1.beta
+        , %para69 : Ref[Tensor(F32)][256, 256, 3, 3]    # moment1.conv3.convs.1.0.weight
+        , %para70 : Ref[Tensor(F32)][256]    # moment1.conv3.convs.1.1.gamma
+        , %para71 : Ref[Tensor(F32)][256]    # moment1.conv3.convs.1.1.beta
+        , %para72 : Ref[Tensor(F32)][512, 256, 3, 3]    # moment1.conv4.convs.0.0.weight
+        , %para73 : Ref[Tensor(F32)][512]    # moment1.conv4.convs.0.1.gamma
+        , %para74 : Ref[Tensor(F32)][512]    # moment1.conv4.convs.0.1.beta
+        , %para75 : Ref[Tensor(F32)][512, 512, 3, 3]    # moment1.conv4.convs.1.0.weight
+        , %para76 : Ref[Tensor(F32)][512]    # moment1.conv4.convs.1.1.gamma
+        , %para77 : Ref[Tensor(F32)][512]    # moment1.conv4.convs.1.1.beta
+        , %para78 : Ref[Tensor(F32)][32, 64, 3, 3]    # moment1.up_concat1.conv.convs.0.0.weight
+        , %para79 : Ref[Tensor(F32)][32, 32, 3, 3]    # moment1.up_concat1.conv.convs.1.0.weight
+        , %para80 : Ref[Tensor(F32)][64, 32, 2, 2]    # moment1.up_concat1.up_conv.weight
+        , %para81 : Ref[Tensor(F32)][64, 128, 3, 3]    # moment1.up_concat2.conv.convs.0.0.weight
+        , %para82 : Ref[Tensor(F32)][64, 64, 3, 3]    # moment1.up_concat2.conv.convs.1.0.weight
+        , %para83 : Ref[Tensor(F32)][128, 64, 2, 2]    # moment1.up_concat2.up_conv.weight
+        , %para84 : Ref[Tensor(F32)][128, 256, 3, 3]    # moment1.up_concat3.conv.convs.0.0.weight
+        , %para85 : Ref[Tensor(F32)][128, 128, 3, 3]    # moment1.up_concat3.conv.convs.1.0.weight
+        , %para86 : Ref[Tensor(F32)][256, 128, 2, 2]    # moment1.up_concat3.up_conv.weight
+        , %para87 : Ref[Tensor(F32)][256, 512, 3, 3]    # moment1.up_concat4.conv.convs.0.0.weight
+        , %para88 : Ref[Tensor(F32)][256, 256, 3, 3]    # moment1.up_concat4.conv.convs.1.0.weight
+        , %para89 : Ref[Tensor(F32)][512, 256, 2, 2]    # moment1.up_concat4.up_conv.weight
+        , %para90 : Ref[Tensor(F32)][3, 32, 1, 1]    # moment1.final.weight
+        , %para91 : Ref[Tensor(F32)][32, 1, 3, 3]    # moment2.conv0.convs.0.0.weight
+        , %para92 : Ref[Tensor(F32)][32]    # moment2.conv0.convs.0.1.gamma
+        , %para93 : Ref[Tensor(F32)][32]    # moment2.conv0.convs.0.1.beta
+        , %para94 : Ref[Tensor(F32)][32, 32, 3, 3]    # moment2.conv0.convs.1.0.weight
+        , %para95 : Ref[Tensor(F32)][32]    # moment2.conv0.convs.1.1.gamma
+        , %para96 : Ref[Tensor(F32)][32]    # moment2.conv0.convs.1.1.beta
+        , %para97 : Ref[Tensor(F32)][64, 32, 3, 3]    # moment2.conv1.convs.0.0.weight
+        , %para98 : Ref[Tensor(F32)][64]    # moment2.conv1.convs.0.1.gamma
+        , %para99 : Ref[Tensor(F32)][64]    # moment2.conv1.convs.0.1.beta
+        , %para100 : Ref[Tensor(F32)][64, 64, 3, 3]    # moment2.conv1.convs.1.0.weight
+        , %para101 : Ref[Tensor(F32)][64]    # moment2.conv1.convs.1.1.gamma
+        , %para102 : Ref[Tensor(F32)][64]    # moment2.conv1.convs.1.1.beta
+        , %para103 : Ref[Tensor(F32)][128, 64, 3, 3]    # moment2.conv2.convs.0.0.weight
+        , %para104 : Ref[Tensor(F32)][128]    # moment2.conv2.convs.0.1.gamma
+        , %para105 : Ref[Tensor(F32)][128]    # moment2.conv2.convs.0.1.beta
+        , %para106 : Ref[Tensor(F32)][128, 128, 3, 3]    # moment2.conv2.convs.1.0.weight
+        , %para107 : Ref[Tensor(F32)][128]    # moment2.conv2.convs.1.1.gamma
+        , %para108 : Ref[Tensor(F32)][128]    # moment2.conv2.convs.1.1.beta
+        , %para109 : Ref[Tensor(F32)][256, 128, 3, 3]    # moment2.conv3.convs.0.0.weight
+        , %para110 : Ref[Tensor(F32)][256]    # moment2.conv3.convs.0.1.gamma
+        , %para111 : Ref[Tensor(F32)][256]    # moment2.conv3.convs.0.1.beta
+        , %para112 : Ref[Tensor(F32)][256, 256, 3, 3]    # moment2.conv3.convs.1.0.weight
+        , %para113 : Ref[Tensor(F32)][256]    # moment2.conv3.convs.1.1.gamma
+        , %para114 : Ref[Tensor(F32)][256]    # moment2.conv3.convs.1.1.beta
+        , %para115 : Ref[Tensor(F32)][512, 256, 3, 3]    # moment2.conv4.convs.0.0.weight
+        , %para116 : Ref[Tensor(F32)][512]    # moment2.conv4.convs.0.1.gamma
+        , %para117 : Ref[Tensor(F32)][512]    # moment2.conv4.convs.0.1.beta
+        , %para118 : Ref[Tensor(F32)][512, 512, 3, 3]    # moment2.conv4.convs.1.0.weight
+        , %para119 : Ref[Tensor(F32)][512]    # moment2.conv4.convs.1.1.gamma
+        , %para120 : Ref[Tensor(F32)][512]    # moment2.conv4.convs.1.1.beta
+        , %para121 : Ref[Tensor(F32)][32, 64, 3, 3]    # moment2.up_concat1.conv.convs.0.0.weight
+        , %para122 : Ref[Tensor(F32)][32, 32, 3, 3]    # moment2.up_concat1.conv.convs.1.0.weight
+        , %para123 : Ref[Tensor(F32)][64, 32, 2, 2]    # moment2.up_concat1.up_conv.weight
+        , %para124 : Ref[Tensor(F32)][64, 128, 3, 3]    # moment2.up_concat2.conv.convs.0.0.weight
+        , %para125 : Ref[Tensor(F32)][64, 64, 3, 3]    # moment2.up_concat2.conv.convs.1.0.weight
+        , %para126 : Ref[Tensor(F32)][128, 64, 2, 2]    # moment2.up_concat2.up_conv.weight
+        , %para127 : Ref[Tensor(F32)][128, 256, 3, 3]    # moment2.up_concat3.conv.convs.0.0.weight
+        , %para128 : Ref[Tensor(F32)][128, 128, 3, 3]    # moment2.up_concat3.conv.convs.1.0.weight
+        , %para129 : Ref[Tensor(F32)][256, 128, 2, 2]    # moment2.up_concat3.up_conv.weight
+        , %para130 : Ref[Tensor(F32)][256, 512, 3, 3]    # moment2.up_concat4.conv.convs.0.0.weight
+        , %para131 : Ref[Tensor(F32)][256, 256, 3, 3]    # moment2.up_concat4.conv.convs.1.0.weight
+        , %para132 : Ref[Tensor(F32)][512, 256, 2, 2]    # moment2.up_concat4.up_conv.weight
+        , %para133 : Ref[Tensor(F32)][3, 32, 1, 1]    # moment2.final.weight
+        , %para134 : Ref[Tensor(F32)][32, 1, 3, 3]    # vhat.conv0.convs.0.0.weight
+        , %para135 : Ref[Tensor(F32)][32]    # vhat.conv0.convs.0.1.gamma
+        , %para136 : Ref[Tensor(F32)][32]    # vhat.conv0.convs.0.1.beta
+        , %para137 : Ref[Tensor(F32)][32, 32, 3, 3]    # vhat.conv0.convs.1.0.weight
+        , %para138 : Ref[Tensor(F32)][32]    # vhat.conv0.convs.1.1.gamma
+        , %para139 : Ref[Tensor(F32)][32]    # vhat.conv0.convs.1.1.beta
+        , %para140 : Ref[Tensor(F32)][64, 32, 3, 3]    # vhat.conv1.convs.0.0.weight
+        , %para141 : Ref[Tensor(F32)][64]    # vhat.conv1.convs.0.1.gamma
+        , %para142 : Ref[Tensor(F32)][64]    # vhat.conv1.convs.0.1.beta
+        , %para143 : Ref[Tensor(F32)][64, 64, 3, 3]    # vhat.conv1.convs.1.0.weight
+        , %para144 : Ref[Tensor(F32)][64]    # vhat.conv1.convs.1.1.gamma
+        , %para145 : Ref[Tensor(F32)][64]    # vhat.conv1.convs.1.1.beta
+        , %para146 : Ref[Tensor(F32)][128, 64, 3, 3]    # vhat.conv2.convs.0.0.weight
+        , %para147 : Ref[Tensor(F32)][128]    # vhat.conv2.convs.0.1.gamma
+        , %para148 : Ref[Tensor(F32)][128]    # vhat.conv2.convs.0.1.beta
+        , %para149 : Ref[Tensor(F32)][128, 128, 3, 3]    # vhat.conv2.convs.1.0.weight
+        , %para150 : Ref[Tensor(F32)][128]    # vhat.conv2.convs.1.1.gamma
+        , %para151 : Ref[Tensor(F32)][128]    # vhat.conv2.convs.1.1.beta
+        , %para152 : Ref[Tensor(F32)][256, 128, 3, 3]    # vhat.conv3.convs.0.0.weight
+        , %para153 : Ref[Tensor(F32)][256]    # vhat.conv3.convs.0.1.gamma
+        , %para154 : Ref[Tensor(F32)][256]    # vhat.conv3.convs.0.1.beta
+        , %para155 : Ref[Tensor(F32)][256, 256, 3, 3]    # vhat.conv3.convs.1.0.weight
+        , %para156 : Ref[Tensor(F32)][256]    # vhat.conv3.convs.1.1.gamma
+        , %para157 : Ref[Tensor(F32)][256]    # vhat.conv3.convs.1.1.beta
+        , %para158 : Ref[Tensor(F32)][512, 256, 3, 3]    # vhat.conv4.convs.0.0.weight
+        , %para159 : Ref[Tensor(F32)][512]    # vhat.conv4.convs.0.1.gamma
+        , %para160 : Ref[Tensor(F32)][512]    # vhat.conv4.convs.0.1.beta
+        , %para161 : Ref[Tensor(F32)][512, 512, 3, 3]    # vhat.conv4.convs.1.0.weight
+        , %para162 : Ref[Tensor(F32)][512]    # vhat.conv4.convs.1.1.gamma
+        , %para163 : Ref[Tensor(F32)][512]    # vhat.conv4.convs.1.1.beta
+        , %para164 : Ref[Tensor(F32)][32, 64, 3, 3]    # vhat.up_concat1.conv.convs.0.0.weight
+        , %para165 : Ref[Tensor(F32)][32, 32, 3, 3]    # vhat.up_concat1.conv.convs.1.0.weight
+        , %para166 : Ref[Tensor(F32)][64, 32, 2, 2]    # vhat.up_concat1.up_conv.weight
+        , %para167 : Ref[Tensor(F32)][64, 128, 3, 3]    # vhat.up_concat2.conv.convs.0.0.weight
+        , %para168 : Ref[Tensor(F32)][64, 64, 3, 3]    # vhat.up_concat2.conv.convs.1.0.weight
+        , %para169 : Ref[Tensor(F32)][128, 64, 2, 2]    # vhat.up_concat2.up_conv.weight
+        , %para170 : Ref[Tensor(F32)][128, 256, 3, 3]    # vhat.up_concat3.conv.convs.0.0.weight
+        , %para171 : Ref[Tensor(F32)][128, 128, 3, 3]    # vhat.up_concat3.conv.convs.1.0.weight
+        , %para172 : Ref[Tensor(F32)][256, 128, 2, 2]    # vhat.up_concat3.up_conv.weight
+        , %para173 : Ref[Tensor(F32)][256, 512, 3, 3]    # vhat.up_concat4.conv.convs.0.0.weight
+        , %para174 : Ref[Tensor(F32)][256, 256, 3, 3]    # vhat.up_concat4.conv.convs.1.0.weight
+        , %para175 : Ref[Tensor(F32)][512, 256, 2, 2]    # vhat.up_concat4.up_conv.weight
+        , %para176 : Ref[Tensor(F32)][3, 32, 1, 1]    # vhat.final.weight
+        , %para177 : Ref[Tensor(F32)][689760]    # learning_rate
+        , %para178 : Ref[Tensor(I32)][1]    # global_step
+        , %para179 : Ref[Tensor(F32)][32]    # conv0.convs.0.1.moving_mean
+        , %para180 : Ref[Tensor(F32)][32]    # conv0.convs.0.1.moving_variance
+        , %para181 : Ref[Tensor(F32)][32]    # conv0.convs.1.1.moving_mean
+        , %para182 : Ref[Tensor(F32)][32]    # conv0.convs.1.1.moving_variance
+        , %para183 : Ref[Tensor(F32)][64]    # conv1.convs.0.1.moving_mean
+        , %para184 : Ref[Tensor(F32)][64]    # conv1.convs.0.1.moving_variance
+        , %para185 : Ref[Tensor(F32)][64]    # conv1.convs.1.1.moving_mean
+        , %para186 : Ref[Tensor(F32)][64]    # conv1.convs.1.1.moving_variance
+        , %para187 : Ref[Tensor(F32)][128]    # conv2.convs.0.1.moving_mean
+        , %para188 : Ref[Tensor(F32)][128]    # conv2.convs.0.1.moving_variance
+        , %para189 : Ref[Tensor(F32)][128]    # conv2.convs.1.1.moving_mean
+        , %para190 : Ref[Tensor(F32)][128]    # conv2.convs.1.1.moving_variance
+        , %para191 : Ref[Tensor(F32)][512]    # conv4.convs.0.1.moving_mean
+        , %para192 : Ref[Tensor(F32)][512]    # conv4.convs.0.1.moving_variance
+        , %para193 : Ref[Tensor(F32)][512]    # conv4.convs.1.1.moving_mean
+        , %para194 : Ref[Tensor(F32)][512]    # conv4.convs.1.1.moving_variance
+        , %para195 : Ref[Tensor(F32)][256]    # conv3.convs.0.1.moving_mean
+        , %para196 : Ref[Tensor(F32)][256]    # conv3.convs.0.1.moving_variance
+        , %para197 : Ref[Tensor(F32)][256]    # conv3.convs.1.1.moving_mean
+        , %para198 : Ref[Tensor(F32)][256]    # conv3.convs.1.1.moving_variance
+    ) {
+    %1 : Tuple[Tensor(F32)*2] = Primitive::MakeTuple{prim_type=1}(%para1, %para2)    #(Tensor(F32)[4, 1, 256, 256], Tensor(F32)[4, 3, 256, 256]) #scope: Default
+#[CNode]57
+
+#------------------------> 0
+    %2 = UnpackCall::unpack_call(FuncGraph::fg_58, %1)    #(Func, Tuple[Tensor(F32)*2])    # fg_58=construct.58 #scope: Default
+#[CNode]59
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(225)/        return loss/#[CNode]60
+}
+# order:
+#   1: construct_wrapper.40:[CNode]59{[0]: ValueNode<UnpackCall> unpack_call.61, [1]: ValueNode<FuncGraph> construct.58, [2]: [CNode]57}
+#   2: construct_wrapper.40:[CNode]60{[0]: ValueNode<Primitive> Return, [1]: [CNode]59}
+
+
+# [No.2] UnpackCall.41
+
+funcgraph fg_41(
+        %para199 : Func    # 42
+        , %para200 : Tuple[Tensor(F32)*2]    # 43
+    ) {
+    %1 : Tensor(F32)[4, 1, 256, 256] = Primitive::TupleGetItem{prim_type=1}(%para200, I64(0))    #(Tuple[Tensor(F32)*2], I64) #scope: Default
+#62
+    %2 : Tensor(F32)[4, 3, 256, 256] = Primitive::TupleGetItem{prim_type=1}(%para200, I64(1))    #(Tuple[Tensor(F32)*2], I64) #scope: Default
+#63
+
+#------------------------> 1
+    %3 = %para199(%1, %2)    #(Tensor(F32)[4, 1, 256, 256], Tensor(F32)[4, 3, 256, 256]) #scope: Default
+#64
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default
+#65
+}
+# order:
+#   1: UnpackCall.41:64{[0]: 42, [1]: 62, [2]: 63}
+#   2: UnpackCall.41:65{[0]: ValueNode<Primitive> Return, [1]: 64}
+
+
+# [No.3] construct.44
+# In file /home/zhangyt/kits19/model/utils.py(221)/    def construct(self, *inputs):/
+funcgraph fg_44[fg_40](
+        %para201 : Tensor(F32)[4, 1, 256, 256]    # inputs0
+        , %para202 : Tensor(F32)[4, 3, 256, 256]    # inputs1
+    ) {
+    %1 : Tuple[Tensor(F32)*2] = Primitive::MakeTuple{prim_type=1}(%para201, %para202)    #(Tensor(F32)[4, 1, 256, 256], Tensor(F32)[4, 3, 256, 256]) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(221)/    def construct(self, *inputs):/#[CNode]66
+    %2 : Func = UnpackGraphPrimitive::UnpackGraph{prim_type=1}(FuncGraph::fg_3, %1)    #(Func, Tuple[Tensor(F32)*2])    # fg_3=construct.3 #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %3 : Tuple[Ref[Tensor(F32)]*43] = Primitive::MakeTuple{prim_type=1}(%para3, %para4, %para5, %para6, %para7, %para8, %para9, %para10, %para11, %para12, %para13, %para14, %para15, %para16, %para17, %para18, %para19, %para20, %para21, %para22, %para23, %para24, %para25, %para26, %para27, %para28, %para29, %para30, %para31, %para32, %para33, %para34, %para35, %para36, %para37, %para38, %para39, %para40, %para41, %para42, %para43, %para44, %para45)    #(Ref[Tensor(F32)][32, 1, 3, 3], Ref[Tensor(F32)][32], Ref[Tensor(F32)][32], Ref[Tensor(F32)][32, 32, 3, 3], Ref[Tensor(F32)][32], Ref[Tensor(F32)][32], Ref[Tensor(F32)][64, 32, 3, 3], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64, 64, 3, 3], Ref[Tensor(F32)][64], Ref[Tensor(F32)][64], Ref[Tensor(F32)][128, 64, 3, 3], Ref[Tensor(F32)][128], Ref[Tensor(F32)][128], Ref[Tensor(F32)][128, 128, 3, 3], Ref[Tensor(F32)][128], Ref[Tensor(F32)][128], Ref[Tensor(F32)][256, 128, 3, 3], Ref[Tensor(F32)][256], Ref[Tensor(F32)][256], Ref[Tensor(F32)][256, 256, 3, 3], Ref[Tensor(F32)][256], Ref[Tensor(F32)][256], Ref[Tensor(F32)][512, 256, 3, 3], Ref[Tensor(F32)][512], Ref[Tensor(F32)][512], Ref[Tensor(F32)][512, 512, 3, 3], Ref[Tensor(F32)][512], Ref[Tensor(F32)][512], Ref[Tensor(F32)][32, 64, 3, 3], Ref[Tensor(F32)][32, 32, 3, 3], Ref[Tensor(F32)][64, 32, 2, 2], Ref[Tensor(F32)][64, 128, 3, 3], Ref[Tensor(F32)][64, 64, 3, 3], Ref[Tensor(F32)][128, 64, 2, 2], Ref[Tensor(F32)][128, 256, 3, 3], Ref[Tensor(F32)][128, 128, 3, 3], Ref[Tensor(F32)][256, 128, 2, 2], Ref[Tensor(F32)][256, 512, 3, 3], Ref[Tensor(F32)][256, 256, 3, 3], Ref[Tensor(F32)][512, 256, 2, 2], Ref[Tensor(F32)][3, 32, 1, 1]) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#[CNode]67
+    %4 : Func = DoSignaturePrimitive::S-Prim-grad{prim_type=1}(%2, %3)    #(Func, Tuple[Ref[Tensor(F32)]*43]) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+
+#------------------------> 2
+    %5 = UnpackCall::unpack_call(%4, %1)    #(Func, Tuple[Tensor(F32)*2]) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %6 = FuncGraph::fg_68(%5)    #(Undefined)    # fg_68=construct.68 #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(224)/        self.optimizer(grads)                                   # 使用优化器更新权重参数/#[CNode]69
+    %7 = Primitive::stop_gradient{prim_type=1}(%6)    #(Undefined) #scope: Default
+#[CNode]70
+    %8 = UnpackCall::unpack_call(FuncGraph::fg_3, %1)    #(Undefined, Tuple[Tensor(F32)*2])    # fg_3=construct.3 #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(222)/        loss = self.network(*inputs)                            # 计算当前输入的损失函数值/#loss
+    %9 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%8, %7)    #(Undefined, Undefined) #scope: Default
+#[CNode]71
+    Primitive::Return{prim_type=1}(%9)    #(Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(225)/        return loss/#[CNode]72
+}
+# order:
+#   1: construct.44:loss{[0]: ValueNode<UnpackCall> unpack_call.73, [1]: ValueNode<FuncGraph> construct.3, [2]: [CNode]66}
+#   2: construct.44:grads{[0]: ValueNode<UnpackGraphPrimitive> UnpackGraph, [1]: ValueNode<FuncGraph> construct.3, [2]: [CNode]66}
+#   3: construct.44:grads{[0]: ValueNode<DoSignaturePrimitive> S-Prim-grad, [1]: grads, [2]: [CNode]67}
+#   4: construct.44:grads{[0]: ValueNode<UnpackCall> unpack_call.74, [1]: grads, [2]: [CNode]66}
+#   5: construct.44:[CNode]69{[0]: ValueNode<FuncGraph> construct.68, [1]: grads}
+#   6: construct.44:[CNode]72{[0]: ValueNode<Primitive> Return, [1]: [CNode]71}
+
+
+# [No.4] UnpackCall.45
+
+funcgraph fg_45(
+        %para203 : Func    # 46
+        , %para204 : Tuple[Tensor(F32)*2]    # 47
+    ) {
+    %1 : Tensor(F32)[4, 1, 256, 256] = Primitive::TupleGetItem{prim_type=1}(%para204, I64(0))    #(Tuple[Tensor(F32)*2], I64) #scope: Default
+#75
+    %2 : Tensor(F32)[4, 3, 256, 256] = Primitive::TupleGetItem{prim_type=1}(%para204, I64(1))    #(Tuple[Tensor(F32)*2], I64) #scope: Default
+#76
+
+#------------------------> 3
+    %3 = %para203(%1, %2)    #(Tensor(F32)[4, 1, 256, 256], Tensor(F32)[4, 3, 256, 256]) #scope: Default
+#77
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default
+#78
+}
+# order:
+#   1: UnpackCall.45:77{[0]: 46, [1]: 75, [2]: 76}
+#   2: UnpackCall.45:78{[0]: ValueNode<Primitive> Return, [1]: 77}
+
+
+# [No.5] construct.48
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(113)/    def construct(self, data, label):/
+funcgraph fg_48[fg_79](
+        %para205 : Tensor(F32)[4, 1, 256, 256]    # construct
+        , %para206 : Tensor(F32)[4, 3, 256, 256]    # construct
+    ) {
+    %1 : $(construct.79):Func = Primitive::J{prim_type=1}[side_effect_propagate=I64(1)](%para-1)    #(Func) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+
+#------------------------> 4
+    %2 = %1(%para205, %para206)    #(Tensor(F32)[4, 1, 256, 256], Tensor(F32)[4, 3, 256, 256]) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %3 = Primitive::TupleGetItem{prim_type=1}(%2, I64(1))    #(Undefined, Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %4 = Primitive::TupleGetItem{prim_type=1}(%2, I64(0))    #(Undefined, Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %5 = HyperMapPy::hyper_map[ones_like_leaf]{fn_leaf=MultitypeFuncGraph::ones_like_leaf{(Func), (TypeType), (COOTensor), (Tensor), (Number), (CSRTensor)}}(%4)    #(Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %6 = %3(%5)    #(Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %7 = Primitive::TupleGetItem{prim_type=1}(%6, I64(0))    #(Undefined, Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %8 = Primitive::Partial{prim_type=1}[side_effect_propagate=I64(1)](MultitypeFuncGraph::env_get{(EnvType, Tensor)}, %7)    #(Undefined, Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    %9 = HyperMap::hyper_map(%8, %para-1)    #(Undefined, Tuple[Ref[Tensor(F32)]*43]) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+    Primitive::Return{prim_type=1}(%9)    #(Undefined) #scope: Default
+      # In file /home/zhangyt/kits19/model/utils.py(223)/        grads = self.grad(self.network, self.weights)(*inputs)  # 进行反向传播，计算梯度/#grads
+}
+# order:
+#   1: construct.48:grads{[0]: grads, [1]: construct, [2]: construct}
+#   2: construct.48:grads{[0]: ValueNode<Primitive> TupleGetItem, [1]: grads, [2]: ValueNode<Int64Imm> 0}
+#   3: construct.48:grads{[0]: ValueNode<Primitive> TupleGetItem, [1]: grads, [2]: ValueNode<Int64Imm> 1}
+#   4: construct.48:grads{[0]: ValueNode<HyperMapPy> hyper_map[ones_like_leaf].80, [1]: grads}
+#   5: construct.48:grads{[0]: grads, [1]: grads}
+#   6: construct.48:grads{[0]: ValueNode<Primitive> TupleGetItem, [1]: grads, [2]: ValueNode<Int64Imm> 0}
+#   7: construct.48:grads{[0]: ValueNode<Primitive> Partial, [1]: ValueNode<MultitypeFuncGraph> env_get.81, [2]: grads}
+#   8: construct.48:grads{[0]: ValueNode<HyperMap> hyper_map.82, [1]: grads, [2]: 83}
+#   9: construct.48:grads{[0]: ValueNode<Primitive> Return, [1]: grads}
+
+
+# [No.6] construct.3
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(113)/    def construct(self, data, label):/
+funcgraph fg_3[fg_40](
+        %para207 : Tensor(F32)[4, 1, 256, 256]    # data
+        , %para208 : Tensor(F32)[4, 3, 256, 256]    # label
+    ) {
+    %1 : Tensor(F32)[4, 3, 256, 256] = FuncGraph::fg_84(%para207)    #(Tensor(F32)[4, 1, 256, 256])    # fg_84=construct.84 #scope: Default/network-WithLossCell
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(114)/        out = self._backbone(data)/#out
+
+#------------------------> 5
+    %2 = FuncGraph::fg_49(%1, %para208)    #(Tensor(F32)[4, 3, 256, 256], Tensor(F32)[4, 3, 256, 256])    # fg_49=construct.49 #scope: Default/network-WithLossCell
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(115)/        return self._loss_fn(out, label)/#[CNode]85
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default/network-WithLossCell
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(115)/        return self._loss_fn(out, label)/#[CNode]86
+}
+# order:
+#   1: construct.3:out{[0]: ValueNode<FuncGraph> construct.84, [1]: data}
+#   2: construct.3:[CNode]85{[0]: ValueNode<FuncGraph> construct.49, [1]: out, [2]: label}
+#   3: construct.3:[CNode]86{[0]: ValueNode<Primitive> Return, [1]: [CNode]85}
+
+
+# [No.7] construct.49
+# In file /home/zhangyt/kits19/model/loss.py(85)/    def construct(self, logits, label):/
+funcgraph fg_49(
+        %para209 : Tensor(F32)[4, 3, 256, 256]    # logits
+        , %para210 : Tensor(F32)[4, 3, 256, 256]    # label
+    ) {
+    %1 : Tuple[I64*4] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(2), I64(3), I64(1))    #(I64, I64, I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(87)/        logits = self.transpose(logits, (0, 2, 3, 1))/#[CNode]87
+    %2 : Tensor(F32)[4, 256, 256, 3] = DoSignaturePrimitive::S-Prim-Transpose{prim_type=1}[output_names=["output"], input_names=["x", "perm"]](%para209, %1)    #(Tensor(F32)[4, 3, 256, 256], Tuple[I64*4]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(87)/        logits = self.transpose(logits, (0, 2, 3, 1))/#logits
+    %3 : Tensor(F32)[4, 256, 256, 3] = DoSignaturePrimitive::S-Prim-Softmax{prim_type=1}[output_names=["output"], input_names=["x"], axis=(I64(-1))](%2)    #(Tensor(F32)[4, 256, 256, 3]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(91)/        soft_logits = self.softmax(logits)/#soft_logits
+    %4 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#[CNode]88
+    %5 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#[CNode]89
+    %6 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#[CNode]90
+    %7 : Tuple[Slice[None : None : None]*3,I64] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%4, %5, %6, I64(1))    #(Slice[None : None : None], Slice[None : None : None], Slice[None : None : None], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#[CNode]91
+    %8 : Tensor(F32)[4, 256, 256] = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, %7)    #(Tensor(F32)[4, 256, 256, 3], Tuple[Slice[None : None : None]*3,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#soft_logits_kidney
+    %9 : Tuple[I64*4] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(I64(0), I64(2), I64(3), I64(1))    #(I64, I64, I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(88)/        label = self.transpose(label, (0, 2, 3, 1))/#[CNode]92
+    %10 : Tensor(F32)[4, 256, 256, 3] = DoSignaturePrimitive::S-Prim-Transpose{prim_type=1}[output_names=["output"], input_names=["x", "perm"]](%para210, %9)    #(Tensor(F32)[4, 3, 256, 256], Tuple[I64*4]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(88)/        label = self.transpose(label, (0, 2, 3, 1))/#label
+    %11 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(95)/        soft_label_kidney = label[:, :, :, 1]/#[CNode]93
+    %12 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(95)/        soft_label_kidney = label[:, :, :, 1]/#[CNode]94
+    %13 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(95)/        soft_label_kidney = label[:, :, :, 1]/#[CNode]95
+    %14 : Tuple[Slice[None : None : None]*3,I64] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%11, %12, %13, I64(1))    #(Slice[None : None : None], Slice[None : None : None], Slice[None : None : None], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(95)/        soft_label_kidney = label[:, :, :, 1]/#[CNode]96
+    %15 : Tensor(F32)[4, 256, 256] = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%10, %14)    #(Tensor(F32)[4, 256, 256, 3], Tuple[Slice[None : None : None]*3,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(95)/        soft_label_kidney = label[:, :, :, 1]/#soft_label_kidney
+    %16 : Tensor(F32)[4, 256, 256] = DoSignaturePrimitive::S-Prim-mul{prim_type=1}(%8, %15)    #(Tensor(F32)[4, 256, 256], Tensor(F32)[4, 256, 256]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(97)/        intersect_kidney = (soft_logits_kidney * soft_label_kidney).sum()/#[CNode]97
+    %17 : Func = Primitive::getattr{prim_type=1}(%16, "sum")    #(Tensor(F32)[4, 256, 256], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(97)/        intersect_kidney = (soft_logits_kidney * soft_label_kidney).sum()/#[CNode]98
+    %18 : Tensor(F32)[] = %17() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(97)/        intersect_kidney = (soft_logits_kidney * soft_label_kidney).sum()/#intersect_kidney
+    %19 : Tensor(F32)[] = DoSignaturePrimitive::S-Prim-mul{prim_type=1}(F32(2), %18)    #(F32, Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(100)/        dice_kidney = (2.0 * intersect_kidney) / (union_kidney)/#[CNode]99
+    %20 : Func = Primitive::getattr{prim_type=1}(%8, "sum")    #(Tensor(F32)[4, 256, 256], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(98)/        union_kidney = soft_logits_kidney.sum() + soft_label_kidney.sum()/#[CNode]100
+    %21 : Tensor(F32)[] = %20() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(98)/        union_kidney = soft_logits_kidney.sum() + soft_label_kidney.sum()/#[CNode]101
+    %22 : Func = Primitive::getattr{prim_type=1}(%15, "sum")    #(Tensor(F32)[4, 256, 256], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(98)/        union_kidney = soft_logits_kidney.sum() + soft_label_kidney.sum()/#[CNode]102
+    %23 : Tensor(F32)[] = %22() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(98)/        union_kidney = soft_logits_kidney.sum() + soft_label_kidney.sum()/#[CNode]103
+    %24 : Tensor(F32)[] = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%21, %23)    #(Tensor(F32)[], Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(98)/        union_kidney = soft_logits_kidney.sum() + soft_label_kidney.sum()/#union_kidney
+    %25 : Tensor(F32)[] = DoSignaturePrimitive::S-Prim-div{prim_type=1}(%19, %24)    #(Tensor(F32)[], Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(100)/        dice_kidney = (2.0 * intersect_kidney) / (union_kidney)/#dice_kidney
+    %26 : Tensor(F32)[] = Primitive::stop_gradient{prim_type=1}(%25)    #(Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(115)/        return self._loss_fn(out, label)/#[CNode]104
+    %27 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#[CNode]105
+    %28 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#[CNode]106
+    %29 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#[CNode]107
+    %30 : Slice[None : None : None] = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(NoneType, NoneType, NoneType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#[CNode]108
+    %31 : Tuple[Slice[None : None : None]*4,I64] = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%27, %28, %29, %30, I64(2))    #(Slice[None : None : None], Slice[None : None : None], Slice[None : None : None], Slice[None : None : None], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#[CNode]109
+
+#------------------------> 6
+    %32 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%3, %31)    #(Tensor(F32)[4, 256, 256, 3], Tuple[Slice[None : None : None]*4,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#soft_logits_tumour
+    %33 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(104)/        soft_label_tumour = label[:, :, :, :, 2]/#[CNode]110
+    %34 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(104)/        soft_label_tumour = label[:, :, :, :, 2]/#[CNode]111
+    %35 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(104)/        soft_label_tumour = label[:, :, :, :, 2]/#[CNode]112
+    %36 = DoSignaturePrimitive::S-Prim-make_slice{prim_type=1}(None, None, None)    #(Undefined, Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(104)/        soft_label_tumour = label[:, :, :, :, 2]/#[CNode]113
+    %37 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%33, %34, %35, %36, I64(2))    #(Undefined, Undefined, Undefined, Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(104)/        soft_label_tumour = label[:, :, :, :, 2]/#[CNode]114
+    %38 = DoSignaturePrimitive::S-Prim-getitem{prim_type=1}(%10, %37)    #(Tensor(F32)[4, 256, 256, 3], Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(104)/        soft_label_tumour = label[:, :, :, :, 2]/#soft_label_tumour
+    %39 = DoSignaturePrimitive::S-Prim-mul{prim_type=1}(%32, %38)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(105)/        intersect_tumour = (soft_logits_tumour * soft_label_tumour).sum()/#[CNode]115
+    %40 = Primitive::getattr{prim_type=1}(%39, "sum")    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(105)/        intersect_tumour = (soft_logits_tumour * soft_label_tumour).sum()/#[CNode]116
+    %41 = %40() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(105)/        intersect_tumour = (soft_logits_tumour * soft_label_tumour).sum()/#intersect_tumour
+    %42 = DoSignaturePrimitive::S-Prim-mul{prim_type=1}(F32(2), %41)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(108)/        dice_tumour = (2.0 * intersect_tumour) / (union_tumour)/#[CNode]117
+    %43 = Primitive::getattr{prim_type=1}(%32, "sum")    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(106)/        union_tumour = soft_logits_tumour.sum() + soft_label_tumour.sum()/#[CNode]118
+    %44 = %43() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(106)/        union_tumour = soft_logits_tumour.sum() + soft_label_tumour.sum()/#[CNode]119
+    %45 = Primitive::getattr{prim_type=1}(%38, "sum")    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(106)/        union_tumour = soft_logits_tumour.sum() + soft_label_tumour.sum()/#[CNode]120
+    %46 = %45() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(106)/        union_tumour = soft_logits_tumour.sum() + soft_label_tumour.sum()/#[CNode]121
+    %47 = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%44, %46)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(106)/        union_tumour = soft_logits_tumour.sum() + soft_label_tumour.sum()/#union_tumour
+    %48 = DoSignaturePrimitive::S-Prim-div{prim_type=1}(%42, %47)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(108)/        dice_tumour = (2.0 * intersect_tumour) / (union_tumour)/#dice_tumour
+    %49 = DoSignaturePrimitive::S-Prim-sub{prim_type=1}(I64(1), %48)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(117)/        loss_dice = 1 - dice_tumour/#loss_dice
+    %50 = DoSignaturePrimitive::S-Prim-negative{prim_type=1}(I64(1))    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(119)/        logits = self.reshape(logits, (-1, 3))/#[CNode]122
+    %51 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%50, I64(3))    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(119)/        logits = self.reshape(logits, (-1, 3))/#[CNode]123
+    %52 = DoSignaturePrimitive::S-Prim-Reshape{prim_type=1}[output_names=["output"], input_names=["tensor", "shape"]](%2, %51)    #(Tensor(F32)[4, 256, 256, 3], Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(119)/        logits = self.reshape(logits, (-1, 3))/#logits
+    %53 = DoSignaturePrimitive::S-Prim-negative{prim_type=1}(I64(1))    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(120)/        label = self.reshape(label, (-1, 3))/#[CNode]124
+    %54 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%53, I64(3))    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(120)/        label = self.reshape(label, (-1, 3))/#[CNode]125
+    %55 = DoSignaturePrimitive::S-Prim-Reshape{prim_type=1}[output_names=["output"], input_names=["tensor", "shape"]](%10, %54)    #(Tensor(F32)[4, 256, 256, 3], Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(120)/        label = self.reshape(label, (-1, 3))/#label
+    %56 = FuncGraph::fg_126(%52, %55)    #(Undefined, Undefined)    # fg_126=construct.126 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(123)/        loss_ce = self.loss_ce(logits, label) /#loss_ce
+    %57 = DoSignaturePrimitive::S-Prim-add{prim_type=1}(%49, %56)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(125)/        return loss_dice + loss_ce/#[CNode]127
+    %58 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%57, %26)    #(Undefined, Tensor(F32)[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/nn/wrap/cell_wrapper.py(115)/        return self._loss_fn(out, label)/#[CNode]128
+    Primitive::Return{prim_type=1}(%58)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(125)/        return loss_dice + loss_ce/#[CNode]129
+}
+# order:
+#   1: construct.49:[CNode]87{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 3, [4]: ValueNode<Int64Imm> 1}
+#   2: construct.49:logits{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Transpose, [1]: logits, [2]: [CNode]87}
+#   3: construct.49:[CNode]92{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: ValueNode<Int64Imm> 0, [2]: ValueNode<Int64Imm> 2, [3]: ValueNode<Int64Imm> 3, [4]: ValueNode<Int64Imm> 1}
+#   4: construct.49:label{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Transpose, [1]: label, [2]: [CNode]92}
+#   5: construct.49:soft_logits{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Softmax, [1]: logits}
+#   6: construct.49:[CNode]88{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#   7: construct.49:[CNode]89{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#   8: construct.49:[CNode]90{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#   9: construct.49:[CNode]91{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]88, [2]: [CNode]89, [3]: [CNode]90, [4]: ValueNode<Int64Imm> 1}
+#  10: construct.49:soft_logits_kidney{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: soft_logits, [2]: [CNode]91}
+#  11: construct.49:[CNode]93{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  12: construct.49:[CNode]94{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  13: construct.49:[CNode]95{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  14: construct.49:[CNode]96{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]93, [2]: [CNode]94, [3]: [CNode]95, [4]: ValueNode<Int64Imm> 1}
+#  15: construct.49:soft_label_kidney{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: label, [2]: [CNode]96}
+#  16: construct.49:[CNode]97{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: soft_logits_kidney, [2]: soft_label_kidney}
+#  17: construct.49:[CNode]98{[0]: ValueNode<Primitive> getattr, [1]: [CNode]97, [2]: ValueNode<StringImm> sum}
+#  18: construct.49:intersect_kidney{[0]: [CNode]98}
+#  19: construct.49:[CNode]100{[0]: ValueNode<Primitive> getattr, [1]: soft_logits_kidney, [2]: ValueNode<StringImm> sum}
+#  20: construct.49:[CNode]101{[0]: [CNode]100}
+#  21: construct.49:[CNode]102{[0]: ValueNode<Primitive> getattr, [1]: soft_label_kidney, [2]: ValueNode<StringImm> sum}
+#  22: construct.49:[CNode]103{[0]: [CNode]102}
+#  23: construct.49:union_kidney{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: [CNode]101, [2]: [CNode]103}
+#  24: construct.49:[CNode]99{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: ValueNode<FP32Imm> 2.000000, [2]: intersect_kidney}
+#  25: construct.49:dice_kidney{[0]: ValueNode<DoSignaturePrimitive> S-Prim-div, [1]: [CNode]99, [2]: union_kidney}
+#  26: construct.49:[CNode]105{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  27: construct.49:[CNode]106{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  28: construct.49:[CNode]107{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  29: construct.49:[CNode]108{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  30: construct.49:[CNode]109{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]105, [2]: [CNode]106, [3]: [CNode]107, [4]: [CNode]108, [5]: ValueNode<Int64Imm> 2}
+#  31: construct.49:soft_logits_tumour{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: soft_logits, [2]: [CNode]109}
+#  32: construct.49:[CNode]110{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  33: construct.49:[CNode]111{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  34: construct.49:[CNode]112{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  35: construct.49:[CNode]113{[0]: ValueNode<DoSignaturePrimitive> S-Prim-make_slice, [1]: ValueNode<None> None, [2]: ValueNode<None> None, [3]: ValueNode<None> None}
+#  36: construct.49:[CNode]114{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]110, [2]: [CNode]111, [3]: [CNode]112, [4]: [CNode]113, [5]: ValueNode<Int64Imm> 2}
+#  37: construct.49:soft_label_tumour{[0]: ValueNode<DoSignaturePrimitive> S-Prim-getitem, [1]: label, [2]: [CNode]114}
+#  38: construct.49:[CNode]115{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: soft_logits_tumour, [2]: soft_label_tumour}
+#  39: construct.49:[CNode]116{[0]: ValueNode<Primitive> getattr, [1]: [CNode]115, [2]: ValueNode<StringImm> sum}
+#  40: construct.49:intersect_tumour{[0]: [CNode]116}
+#  41: construct.49:[CNode]118{[0]: ValueNode<Primitive> getattr, [1]: soft_logits_tumour, [2]: ValueNode<StringImm> sum}
+#  42: construct.49:[CNode]119{[0]: [CNode]118}
+#  43: construct.49:[CNode]120{[0]: ValueNode<Primitive> getattr, [1]: soft_label_tumour, [2]: ValueNode<StringImm> sum}
+#  44: construct.49:[CNode]121{[0]: [CNode]120}
+#  45: construct.49:union_tumour{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: [CNode]119, [2]: [CNode]121}
+#  46: construct.49:[CNode]117{[0]: ValueNode<DoSignaturePrimitive> S-Prim-mul, [1]: ValueNode<FP32Imm> 2.000000, [2]: intersect_tumour}
+#  47: construct.49:dice_tumour{[0]: ValueNode<DoSignaturePrimitive> S-Prim-div, [1]: [CNode]117, [2]: union_tumour}
+#  48: construct.49:loss_dice{[0]: ValueNode<DoSignaturePrimitive> S-Prim-sub, [1]: ValueNode<Int64Imm> 1, [2]: dice_tumour}
+#  49: construct.49:[CNode]122{[0]: ValueNode<DoSignaturePrimitive> S-Prim-negative, [1]: ValueNode<Int64Imm> 1}
+#  50: construct.49:[CNode]123{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]122, [2]: ValueNode<Int64Imm> 3}
+#  51: construct.49:logits{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Reshape, [1]: logits, [2]: [CNode]123}
+#  52: construct.49:[CNode]124{[0]: ValueNode<DoSignaturePrimitive> S-Prim-negative, [1]: ValueNode<Int64Imm> 1}
+#  53: construct.49:[CNode]125{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: [CNode]124, [2]: ValueNode<Int64Imm> 3}
+#  54: construct.49:label{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Reshape, [1]: label, [2]: [CNode]125}
+#  55: construct.49:loss_ce{[0]: ValueNode<FuncGraph> construct.126, [1]: logits, [2]: label}
+#  56: construct.49:[CNode]127{[0]: ValueNode<DoSignaturePrimitive> S-Prim-add, [1]: loss_dice, [2]: loss_ce}
+#  57: construct.49:[CNode]129{[0]: ValueNode<Primitive> Return, [1]: [CNode]128}
+
+
+# [No.8] _tensor_getitem_by_tuple.50
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/getitem_impl.py(282)/def _tensor_getitem_by_tuple(data, tuple_index):/
+funcgraph fg_50(
+        %para211 : Tensor(F32)[4, 256, 256, 3]    # data
+        , %para212 : Tuple[Slice[None : None : None]*4,I64]    # tuple_index
+    ) {
+    %1 : ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, compile_utils)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#soft_logits_tumour
+    %2 : Func = Primitive::getattr{prim_type=1}(%1, "tensor_index_by_tuple")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#soft_logits_tumour
+
+#------------------------> 7
+    %3 = %2(%para211, %para212)    #(Tensor(F32)[4, 256, 256, 3], Tuple[Slice[None : None : None]*4,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#soft_logits_tumour
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(103)/        soft_logits_tumour = soft_logits[:, :, :, :, 2]/#soft_logits_tumour
+}
+# order:
+#   1: _tensor_getitem_by_tuple.130:[CNode]131{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   2: _tensor_getitem_by_tuple.130:[CNode]132{[0]: [CNode]131, [1]: data, [2]: tuple_index}
+#   3: _tensor_getitem_by_tuple.50:soft_logits_tumour{[0]: soft_logits_tumour, [1]: data, [2]: tuple_index}
+#   4: _tensor_getitem_by_tuple.50:soft_logits_tumour{[0]: ValueNode<Primitive> Return, [1]: soft_logits_tumour}
+
+
+# [No.9] tensor_index_by_tuple.51
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(430)/def tensor_index_by_tuple(data, tuple_index):/
+funcgraph fg_51(
+        %para213 : Tensor(F32)[4, 256, 256, 3]    # data
+        , %para214 : Tuple[Slice[None : None : None]*4,I64]    # tuple_index
+    ) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]133
+    %2 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, not_)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]134
+    %3 : Bool = %2(%para214)    #(Tuple[Slice[None : None : None]*4,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]135
+    %4 : Bool = %1(%3)    #(Bool) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]136
+    %5 : Func = Primitive::Switch{prim_type=1}(%4, FuncGraph::fg_137, FuncGraph::fg_52)    #(Bool, Func, Func)    # fg_137=✓tensor_index_by_tuple.137, fg_52=✗tensor_index_by_tuple.52 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]138
+
+#------------------------> 8
+    %6 = %5() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]139
+    Primitive::Return{prim_type=1}(%6)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]140
+}
+# order:
+#   1: tensor_index_by_tuple.51:[CNode]135{[0]: [CNode]134, [1]: tuple_index}
+#   2: tensor_index_by_tuple.51:[CNode]136{[0]: [CNode]133, [1]: [CNode]135}
+#   3: tensor_index_by_tuple.51:[CNode]138{[0]: ValueNode<Primitive> Switch, [1]: [CNode]136, [2]: ValueNode<FuncGraph> ✓tensor_index_by_tuple.137, [3]: ValueNode<FuncGraph> ✗tensor_index_by_tuple.52}
+#   4: tensor_index_by_tuple.51:[CNode]139{[0]: [CNode]138}
+#   5: tensor_index_by_tuple.51:[CNode]140{[0]: ValueNode<Primitive> Return, [1]: [CNode]139}
+#   6: tensor_index_by_tuple.51:[CNode]141{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr: 'Namespace:mindspore.ops.composite.multitype_ops._compile_utils', [2]: ValueNode<Symbol> _tensor_getitem_by_tuple}
+
+
+# [No.10] ✗tensor_index_by_tuple.52
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/
+funcgraph fg_52[fg_51](
+) {
+
+#------------------------> 9
+    %1 = FuncGraph::fg_53()    # fg_53=↓tensor_index_by_tuple.53 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]142
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/#[CNode]143
+}
+# order:
+#   1: ✗tensor_index_by_tuple.52:[CNode]142{[0]: ValueNode<FuncGraph> ↓tensor_index_by_tuple.53}
+#   2: ✗tensor_index_by_tuple.52:[CNode]143{[0]: ValueNode<Primitive> Return, [1]: [CNode]142}
+
+
+# [No.11] ↓tensor_index_by_tuple.53
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(432)/    if not tuple_index:/
+funcgraph fg_53[fg_51](
+) {
+    %1 : $(tensor_index_by_tuple.51):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, const_utils)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(435)/    op_name = const_utils.TENSOR_GETITEM/#[CNode]144
+    %2 : Func = Primitive::getattr{prim_type=1}(%1, "judge_data_dim")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(440)/    const_utils.judge_data_dim(data.ndim, min_data_dim, max_data_dim)/#[CNode]145
+    %3 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(437)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#[CNode]146
+    %4 : $(tensor_index_by_tuple.51):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, _expand_data_dims)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(437)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#[CNode]147
+    %5 : $(tensor_index_by_tuple.51):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, _transform_ellipsis_to_slice)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(436)/    tuple_index = _transform_ellipsis_to_slice(data, tuple_index, op_name)/#[CNode]148
+    %6 : String = Primitive::getattr{prim_type=1}(%1, "TENSOR_GETITEM")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(435)/    op_name = const_utils.TENSOR_GETITEM/#op_name
+
+#------------------------> 10
+    %7 = %5(%para213, %para214, %6)    #(Tensor(F32)[4, 256, 256, 3], Tuple[Slice[None : None : None]*4,I64], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(436)/    tuple_index = _transform_ellipsis_to_slice(data, tuple_index, op_name)/#tuple_index
+    %8 = %4(%para213, %7)    #(Tensor(F32)[4, 256, 256, 3], Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(437)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#[CNode]149
+    %9 = %3(%8, I64(0))    #(Undefined, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(437)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#data
+    %10 = Primitive::getattr{prim_type=1}(%9, "ndim")    #(Undefined, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(440)/    const_utils.judge_data_dim(data.ndim, min_data_dim, max_data_dim)/#[CNode]150
+    %11 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(439)/    min_data_dim, max_data_dim = 1, 8/#[CNode]151
+    %12 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, MakeTuple)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(439)/    min_data_dim, max_data_dim = 1, 8/#[CNode]152
+    %13 = %12(I64(1), I64(8))    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(439)/    min_data_dim, max_data_dim = 1, 8/#[CNode]153
+    %14 = %11(%13, I64(0))    #(Undefined, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(439)/    min_data_dim, max_data_dim = 1, 8/#min_data_dim
+    %15 = %11(%13, I64(1))    #(Undefined, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(439)/    min_data_dim, max_data_dim = 1, 8/#max_data_dim
+    %16 = %2(%10, %14, %15)    #(Undefined, Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(440)/    const_utils.judge_data_dim(data.ndim, min_data_dim, max_data_dim)/#[CNode]154
+    %17 = Primitive::stop_gradient{prim_type=1}(%16)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#[CNode]155
+    %18 = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]156
+    %19 = Primitive::resolve{prim_type=1}(NameSpace::Ast, eq)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]157
+    %20 = Primitive::getattr{prim_type=1}(%1, "tuple_index_type_cnt")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(443)/    contain_type = const_utils.tuple_index_type_cnt(indexes_types, op_name)/#[CNode]158
+    %21 = $(tensor_index_by_tuple.51):Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, hyper_map)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(442)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]159
+    %22 = $(tensor_index_by_tuple.51):Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(442)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]160
+    %23 = Primitive::getattr{prim_type=1}(%22, "typeof")    #(Undefined, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(442)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]161
+    %24 = %3(%8, I64(1))    #(Undefined, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(437)/    data, tuple_index = _expand_data_dims(data, tuple_index)/#tuple_index
+    %25 = %21(%23, %24)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(442)/    indexes_types = hyper_map(F.typeof, tuple_index)/#indexes_types
+    %26 = %20(%25, %6)    #(Undefined, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(443)/    contain_type = const_utils.tuple_index_type_cnt(indexes_types, op_name)/#contain_type
+    %27 = Primitive::getattr{prim_type=1}(%1, "ALL_BASIC")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]162
+    %28 = %19(%26, %27)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]163
+    %29 = %18(%28)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]164
+    %30 = Primitive::Switch{prim_type=1}(%29, FuncGraph::fg_165, FuncGraph::fg_166)    #(Undefined, Undefined, Undefined)    # fg_165=✓↓tensor_index_by_tuple.165, fg_166=✗↓tensor_index_by_tuple.166 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]167
+    %31 = %30() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]168
+    %32 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%31, %17)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/kits19/model/loss.py(94)/        soft_logits_kidney = soft_logits[:, :, :, 1]/#[CNode]169
+    Primitive::Return{prim_type=1}(%32)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(444)/    if contain_type == const_utils.ALL_BASIC:/#[CNode]170
+}
+# order:
+#   1: ↓tensor_index_by_tuple.53:[CNode]171{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   2: ↓tensor_index_by_tuple.53:[CNode]172{[0]: [CNode]171, [1]: data, [2]: tuple_index, [3]: op_name}
+#   3: ↓tensor_index_by_tuple.53:tuple_index{[0]: [CNode]148, [1]: data, [2]: tuple_index, [3]: op_name}
+#   4: ↓tensor_index_by_tuple.53:[CNode]173{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   5: ↓tensor_index_by_tuple.53:[CNode]174{[0]: [CNode]173, [1]: data, [2]: tuple_index}
+#   6: ↓tensor_index_by_tuple.53:[CNode]149{[0]: [CNode]147, [1]: data, [2]: tuple_index}
+#   7: ↓tensor_index_by_tuple.53:data{[0]: [CNode]146, [1]: [CNode]149, [2]: ValueNode<Int64Imm> 0}
+#   8: ↓tensor_index_by_tuple.53:tuple_index{[0]: [CNode]146, [1]: [CNode]149, [2]: ValueNode<Int64Imm> 1}
+#   9: ↓tensor_index_by_tuple.53:[CNode]153{[0]: [CNode]152, [1]: ValueNode<Int64Imm> 1, [2]: ValueNode<Int64Imm> 8}
+#  10: ↓tensor_index_by_tuple.53:min_data_dim{[0]: [CNode]151, [1]: [CNode]153, [2]: ValueNode<Int64Imm> 0}
+#  11: ↓tensor_index_by_tuple.53:max_data_dim{[0]: [CNode]151, [1]: [CNode]153, [2]: ValueNode<Int64Imm> 1}
+#  12: ↓tensor_index_by_tuple.53:[CNode]150{[0]: ValueNode<Primitive> getattr, [1]: data, [2]: ValueNode<StringImm> ndim}
+#  13: ↓tensor_index_by_tuple.53:[CNode]175{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  14: ↓tensor_index_by_tuple.53:[CNode]176{[0]: [CNode]175, [1]: [CNode]150, [2]: min_data_dim, [3]: max_data_dim}
+#  15: ↓tensor_index_by_tuple.53:[CNode]154{[0]: [CNode]145, [1]: [CNode]150, [2]: min_data_dim, [3]: max_data_dim}
+#  16: ↓tensor_index_by_tuple.53:[CNode]177{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  17: ↓tensor_index_by_tuple.53:[CNode]178{[0]: [CNode]177, [1]: [CNode]161, [2]: tuple_index}
+#  18: ↓tensor_index_by_tuple.53:indexes_types{[0]: [CNode]159, [1]: [CNode]161, [2]: tuple_index}
+#  19: ↓tensor_index_by_tuple.53:[CNode]179{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  20: ↓tensor_index_by_tuple.53:[CNode]180{[0]: [CNode]179, [1]: indexes_types, [2]: op_name}
+#  21: ↓tensor_index_by_tuple.53:contain_type{[0]: [CNode]158, [1]: indexes_types, [2]: op_name}
+#  22: ↓tensor_index_by_tuple.53:[CNode]163{[0]: [CNode]157, [1]: contain_type, [2]: [CNode]162}
+#  23: ↓tensor_index_by_tuple.53:[CNode]164{[0]: [CNode]156, [1]: [CNode]163}
+#  24: ↓tensor_index_by_tuple.53:[CNode]167{[0]: ValueNode<Primitive> Switch, [1]: [CNode]164, [2]: ValueNode<FuncGraph> ✓↓tensor_index_by_tuple.165, [3]: ValueNode<FuncGraph> ✗↓tensor_index_by_tuple.166}
+#  25: ↓tensor_index_by_tuple.53:[CNode]168{[0]: [CNode]167}
+#  26: ↓tensor_index_by_tuple.53:[CNode]170{[0]: ValueNode<Primitive> Return, [1]: [CNode]168}
+#  27: ↓tensor_index_by_tuple.53:[CNode]170{[0]: ValueNode<Primitive> Return, [1]: [CNode]169}
+
+
+# [No.12] _transform_ellipsis_to_slice.54
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(242)/def _transform_ellipsis_to_slice(data, tuple_index, op_name):/
+funcgraph fg_54(
+        %para215 : Tensor(F32)[4, 256, 256, 3]    # data
+        , %para216 : Tuple[Slice[None : None : None]*4,I64]    # Φtuple_index
+        , %para217 : String    # op_name
+    ) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/#[CNode]181
+    %2 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, lt)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]182
+    %3 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, sub)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]183
+    %4 : I64 = Primitive::getattr{prim_type=1}(%para215, "ndim")    #(Tensor(F32)[4, 256, 256, 3], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]184
+    %5 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, add)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]185
+    %6 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, add)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]186
+    %7 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, add)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]187
+    %8 : Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, len)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]188
+    %9 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(249)/    slice_positions, ellipsis_positions, _, int_positions, _, tensor_positions, sequence_positions = \/#[CNode]189
+    %10 : ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, const_utils)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(263)/    for i, index in enumerate(tuple_index):/#Φconst_utils
+    %11 : Func = Primitive::getattr{prim_type=1}(%10, "get_pos_of_indexes_types")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(250)/        const_utils.get_pos_of_indexes_types(indexes_types, op_name)/#[CNode]190
+    %12 : Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, hyper_map)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(248)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]191
+    %13 : ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(247)/    data_shape = F.shape(data)/#[CNode]192
+    %14 : Func = Primitive::getattr{prim_type=1}(%13, "typeof")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(248)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]193
+    %15 : Tuple[TypeType*5] = %12(%14, %para216)    #(Func, Tuple[Slice[None : None : None]*4,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(248)/    indexes_types = hyper_map(F.typeof, tuple_index)/#indexes_types
+    %16 : Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3] = %11(%15, %para217)    #(Tuple[TypeType*5], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(250)/        const_utils.get_pos_of_indexes_types(indexes_types, op_name)/#[CNode]194
+    %17 : Tuple[I64*4] = %9(%16, I64(0))    #(Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(249)/    slice_positions, ellipsis_positions, _, int_positions, _, tensor_positions, sequence_positions = \/#slice_positions
+    %18 : I64 = %8(%17)    #(Tuple[I64*4]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]195
+    %19 : Tuple[I64] = %9(%16, I64(3))    #(Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(249)/    slice_positions, ellipsis_positions, _, int_positions, _, tensor_positions, sequence_positions = \/#int_positions
+    %20 : I64 = %8(%19)    #(Tuple[I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]196
+    %21 : I64 = %7(%18, %20)    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]197
+    %22 : Tuple[] = %9(%16, I64(5))    #(Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(249)/    slice_positions, ellipsis_positions, _, int_positions, _, tensor_positions, sequence_positions = \/#tensor_positions
+    %23 : I64 = %8(%22)    #(Tuple[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(253)/                                        len(tensor_positions) + len(sequence_positions))/#[CNode]198
+    %24 : I64 = %6(%21, %23)    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]199
+    %25 : Tuple[] = %9(%16, I64(6))    #(Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(249)/    slice_positions, ellipsis_positions, _, int_positions, _, tensor_positions, sequence_positions = \/#sequence_positions
+    %26 : I64 = %8(%25)    #(Tuple[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(253)/                                        len(tensor_positions) + len(sequence_positions))/#[CNode]200
+    %27 : I64 = %5(%24, %26)    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]201
+    %28 : I64 = %3(%4, %27)    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(263)/    for i, index in enumerate(tuple_index):/#Φellipsis_occupy_dims
+    %29 : Bool = %2(%28, I64(0))    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/#[CNode]202
+    %30 : Bool = %1(%29)    #(Bool) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/#[CNode]203
+    %31 : Func = Primitive::Switch{prim_type=1}(%30, FuncGraph::fg_55, FuncGraph::fg_204)    #(Bool, Func, Func)    # fg_55=✓_transform_ellipsis_to_slice.55, fg_204=✗_transform_ellipsis_to_slice.204 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/#[CNode]205
+
+#------------------------> 11
+    %32 = %31() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/#[CNode]206
+    Primitive::Return{prim_type=1}(%32)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/#[CNode]207
+}
+# order:
+#   1: _transform_ellipsis_to_slice.54:[CNode]208{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   2: _transform_ellipsis_to_slice.54:[CNode]209{[0]: [CNode]208, [1]: data}
+#   3: _transform_ellipsis_to_slice.54:data_shape{[0]: [CNode]210, [1]: data}
+#   4: _transform_ellipsis_to_slice.54:[CNode]211{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   5: _transform_ellipsis_to_slice.54:[CNode]212{[0]: [CNode]211, [1]: [CNode]193, [2]: Φtuple_index}
+#   6: _transform_ellipsis_to_slice.54:indexes_types{[0]: [CNode]191, [1]: [CNode]193, [2]: Φtuple_index}
+#   7: _transform_ellipsis_to_slice.54:[CNode]213{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   8: _transform_ellipsis_to_slice.54:[CNode]214{[0]: [CNode]213, [1]: indexes_types, [2]: op_name}
+#   9: _transform_ellipsis_to_slice.54:[CNode]194{[0]: [CNode]190, [1]: indexes_types, [2]: op_name}
+#  10: _transform_ellipsis_to_slice.54:slice_positions{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 0}
+#  11: _transform_ellipsis_to_slice.54:Φellipsis_positions{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 1}
+#  12: _transform_ellipsis_to_slice.54:_{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 2}
+#  13: _transform_ellipsis_to_slice.54:int_positions{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 3}
+#  14: _transform_ellipsis_to_slice.54:_{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 4}
+#  15: _transform_ellipsis_to_slice.54:tensor_positions{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 5}
+#  16: _transform_ellipsis_to_slice.54:sequence_positions{[0]: [CNode]189, [1]: [CNode]194, [2]: ValueNode<Int64Imm> 6}
+#  17: _transform_ellipsis_to_slice.54:[CNode]184{[0]: ValueNode<Primitive> getattr, [1]: data, [2]: ValueNode<StringImm> ndim}
+#  18: _transform_ellipsis_to_slice.54:[CNode]215{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  19: _transform_ellipsis_to_slice.54:[CNode]216{[0]: [CNode]215, [1]: slice_positions}
+#  20: _transform_ellipsis_to_slice.54:[CNode]195{[0]: [CNode]188, [1]: slice_positions}
+#  21: _transform_ellipsis_to_slice.54:[CNode]217{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  22: _transform_ellipsis_to_slice.54:[CNode]218{[0]: [CNode]217, [1]: int_positions}
+#  23: _transform_ellipsis_to_slice.54:[CNode]196{[0]: [CNode]188, [1]: int_positions}
+#  24: _transform_ellipsis_to_slice.54:[CNode]197{[0]: [CNode]187, [1]: [CNode]195, [2]: [CNode]196}
+#  25: _transform_ellipsis_to_slice.54:[CNode]219{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  26: _transform_ellipsis_to_slice.54:[CNode]220{[0]: [CNode]219, [1]: tensor_positions}
+#  27: _transform_ellipsis_to_slice.54:[CNode]198{[0]: [CNode]188, [1]: tensor_positions}
+#  28: _transform_ellipsis_to_slice.54:[CNode]199{[0]: [CNode]186, [1]: [CNode]197, [2]: [CNode]198}
+#  29: _transform_ellipsis_to_slice.54:[CNode]221{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  30: _transform_ellipsis_to_slice.54:[CNode]222{[0]: [CNode]221, [1]: sequence_positions}
+#  31: _transform_ellipsis_to_slice.54:[CNode]200{[0]: [CNode]188, [1]: sequence_positions}
+#  32: _transform_ellipsis_to_slice.54:[CNode]201{[0]: [CNode]185, [1]: [CNode]199, [2]: [CNode]200}
+#  33: _transform_ellipsis_to_slice.54:Φellipsis_occupy_dims{[0]: [CNode]183, [1]: [CNode]184, [2]: [CNode]201}
+#  34: _transform_ellipsis_to_slice.54:[CNode]223{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#  35: _transform_ellipsis_to_slice.54:[CNode]224{[0]: [CNode]223, [1]: Φellipsis_positions}
+#  36: _transform_ellipsis_to_slice.54:ellipsis_cnt{[0]: [CNode]188, [1]: Φellipsis_positions}
+#  37: _transform_ellipsis_to_slice.54:[CNode]202{[0]: [CNode]182, [1]: Φellipsis_occupy_dims, [2]: ValueNode<Int64Imm> 0}
+#  38: _transform_ellipsis_to_slice.54:[CNode]203{[0]: [CNode]181, [1]: [CNode]202}
+#  39: _transform_ellipsis_to_slice.54:[CNode]205{[0]: ValueNode<Primitive> Switch, [1]: [CNode]203, [2]: ValueNode<FuncGraph> ✓_transform_ellipsis_to_slice.55, [3]: ValueNode<FuncGraph> ✗_transform_ellipsis_to_slice.204}
+#  40: _transform_ellipsis_to_slice.54:[CNode]206{[0]: [CNode]205}
+#  41: _transform_ellipsis_to_slice.54:[CNode]207{[0]: ValueNode<Primitive> Return, [1]: [CNode]206}
+#  42: _transform_ellipsis_to_slice.54:Φrange{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> SymbolStr: 'Namespace:mindspore.ops.composite.multitype_ops._compile_utils', [2]: ValueNode<Symbol> range}
+
+
+# [No.13] ✓_transform_ellipsis_to_slice.55
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(256)/    if ellipsis_occupy_dims < 0:/
+funcgraph fg_55[fg_54](
+) {
+    %1 : Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, bool_)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]225
+    %2 : Func = Primitive::resolve{prim_type=1}(NameSpace::Ast, ge)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(0)/#[CNode]226
+    %3 : $(_transform_ellipsis_to_slice.54):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, len)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(252)/    ellipsis_occupy_dims = data.ndim - (len(slice_positions) + len(int_positions) +/#[CNode]188
+    %4 : $(_transform_ellipsis_to_slice.54):Func = Primitive::resolve{prim_type=1}(NameSpace::CommonOPS, getitem)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(249)/    slice_positions, ellipsis_positions, _, int_positions, _, tensor_positions, sequence_positions = \/#[CNode]189
+    %5 : $(_transform_ellipsis_to_slice.54):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, const_utils)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(263)/    for i, index in enumerate(tuple_index):/#Φconst_utils
+    %6 : $(_transform_ellipsis_to_slice.54):Func = Primitive::getattr{prim_type=1}(%5, "get_pos_of_indexes_types")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(250)/        const_utils.get_pos_of_indexes_types(indexes_types, op_name)/#[CNode]190
+    %7 : $(_transform_ellipsis_to_slice.54):Func = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, hyper_map)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(248)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]191
+    %8 : $(_transform_ellipsis_to_slice.54):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(247)/    data_shape = F.shape(data)/#[CNode]192
+    %9 : $(_transform_ellipsis_to_slice.54):Func = Primitive::getattr{prim_type=1}(%8, "typeof")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(248)/    indexes_types = hyper_map(F.typeof, tuple_index)/#[CNode]193
+    %10 : $(_transform_ellipsis_to_slice.54):Tuple[TypeType*5] = %7(%9, %para216)    #(Func, Tuple[Slice[None : None : None]*4,I64]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(248)/    indexes_types = hyper_map(F.typeof, tuple_index)/#indexes_types
+    %11 : $(_transform_ellipsis_to_slice.54):Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3] = %6(%10, %para217)    #(Tuple[TypeType*5], String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(250)/        const_utils.get_pos_of_indexes_types(indexes_types, op_name)/#[CNode]194
+    %12 : $(_transform_ellipsis_to_slice.54):Tuple[] = %4(%11, I64(1))    #(Tuple[Tuple[I64*4],Tuple[]*2,Tuple[I64],Tuple[]*3], I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(263)/    for i, index in enumerate(tuple_index):/#Φellipsis_positions
+    %13 : $(_transform_ellipsis_to_slice.54):I64 = %3(%12)    #(Tuple[]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(254)/    ellipsis_cnt = len(ellipsis_positions)/#ellipsis_cnt
+    %14 : Bool = %2(%13, I64(0))    #(I64, I64) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]227
+    %15 : Bool = %1(%14)    #(Bool) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]228
+    %16 : Func = Primitive::Switch{prim_type=1}(%15, FuncGraph::fg_56, FuncGraph::fg_229)    #(Bool, Func, Func)    # fg_56=✓✓_transform_ellipsis_to_slice.56, fg_229=✗✓_transform_ellipsis_to_slice.229 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]230
+
+#------------------------> 12
+    %17 = %16() #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]231
+    Primitive::Return{prim_type=1}(%17)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]232
+}
+# order:
+#   1: ✓_transform_ellipsis_to_slice.55:[CNode]227{[0]: [CNode]226, [1]: ellipsis_cnt, [2]: ValueNode<Int64Imm> 0}
+#   2: ✓_transform_ellipsis_to_slice.55:[CNode]228{[0]: [CNode]225, [1]: [CNode]227}
+#   3: ✓_transform_ellipsis_to_slice.55:[CNode]230{[0]: ValueNode<Primitive> Switch, [1]: [CNode]228, [2]: ValueNode<FuncGraph> ✓✓_transform_ellipsis_to_slice.56, [3]: ValueNode<FuncGraph> ✗✓_transform_ellipsis_to_slice.229}
+#   4: ✓_transform_ellipsis_to_slice.55:[CNode]231{[0]: [CNode]230}
+#   5: ✓_transform_ellipsis_to_slice.55:[CNode]232{[0]: ValueNode<Primitive> Return, [1]: [CNode]231}
+
+
+# [No.14] ✓✓_transform_ellipsis_to_slice.56
+# In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/
+funcgraph fg_56[fg_54](
+) {
+    %1 : $(_transform_ellipsis_to_slice.54):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, const_utils)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(263)/    for i, index in enumerate(tuple_index):/#Φconst_utils
+    %2 : Func = Primitive::getattr{prim_type=1}(%1, "raise_index_error")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(260)/            const_utils.raise_index_error(exp_msg)/#[CNode]233
+    %3 : Func = Primitive::getattr{prim_type=1}(%1, "gen_exception_msg")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(258)/            exp_msg = const_utils.gen_exception_msg(/#[CNode]234
+    %4 : $(_transform_ellipsis_to_slice.54):ExternalType = Primitive::resolve{prim_type=1}(NameSpace::SymbolStr, F)    #(ExternalType, ExternalType) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(247)/    data_shape = F.shape(data)/#[CNode]192
+    %5 : $(_transform_ellipsis_to_slice.54):Func = Primitive::getattr{prim_type=1}(%4, "shape")    #(ExternalType, String) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(247)/    data_shape = F.shape(data)/#[CNode]210
+    %6 : $(_transform_ellipsis_to_slice.54):Tuple[I64*4] = %5(%para215)    #(Tensor(F32)[4, 256, 256, 3]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(247)/    data_shape = F.shape(data)/#data_shape
+
+#------------------------> 13
+    %7 = %3("Tuple index {} out rang of tensor shape {}.", %para216, %6)    #(String, Tuple[Slice[None : None : None]*4,I64], Tuple[I64*4]) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(258)/            exp_msg = const_utils.gen_exception_msg(/#exp_msg
+    %8 = %2(%7)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(260)/            const_utils.raise_index_error(exp_msg)/#[CNode]235
+    %9 = Primitive::stop_gradient{prim_type=1}(%8)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(436)/    tuple_index = _transform_ellipsis_to_slice(data, tuple_index, op_name)/#[CNode]236
+    %10 = FuncGraph::fg_237()    # fg_237=↓✓_transform_ellipsis_to_slice.237 #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]238
+    %11 = Primitive::Depend{prim_type=1}[side_effect_propagate=I64(1)](%10, %9)    #(Undefined, Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(436)/    tuple_index = _transform_ellipsis_to_slice(data, tuple_index, op_name)/#[CNode]239
+    Primitive::Return{prim_type=1}(%11)    #(Undefined) #scope: Default/network-WithLossCell/_loss_fn-Tumour_Dice_CrossEntropy_Loss
+      # In file /home/zhangyt/miniconda3/lib/python3.9/site-packages/mindspore/ops/composite/multitype_ops/_compile_utils.py(257)/        if ellipsis_cnt >= 0:/#[CNode]240
+}
+# order:
+#   1: ✓✓_transform_ellipsis_to_slice.56:[CNode]241{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   2: ✓✓_transform_ellipsis_to_slice.56:[CNode]242{[0]: [CNode]241, [1]: ValueNode<StringImm> Tuple index {} out rang of tensor shape {}., [2]: Φtuple_index, [3]: data_shape}
+#   3: ✓✓_transform_ellipsis_to_slice.56:exp_msg{[0]: [CNode]234, [1]: ValueNode<StringImm> Tuple index {} out rang of tensor shape {}., [2]: Φtuple_index, [3]: data_shape}
+#   4: ✓✓_transform_ellipsis_to_slice.56:[CNode]243{[0]: ValueNode<Primitive> resolve, [1]: ValueNode<NameSpace> CommonOPS: 'Namespace:mindspore._extends.parse.trope', [2]: ValueNode<Symbol> MakeTuple}
+#   5: ✓✓_transform_ellipsis_to_slice.56:[CNode]244{[0]: [CNode]243, [1]: exp_msg}
+#   6: ✓✓_transform_ellipsis_to_slice.56:[CNode]235{[0]: [CNode]233, [1]: exp_msg}
+#   7: ✓✓_transform_ellipsis_to_slice.56:[CNode]238{[0]: ValueNode<FuncGraph> ↓✓_transform_ellipsis_to_slice.237}
+#   8: ✓✓_transform_ellipsis_to_slice.56:[CNode]240{[0]: ValueNode<Primitive> Return, [1]: [CNode]238}
+#   9: ✓✓_transform_ellipsis_to_slice.56:[CNode]240{[0]: ValueNode<Primitive> Return, [1]: [CNode]239}
+
+
+#===============================================================================
+# num of function graphs in stack: 14/16 (Ignored 2 internal frames).
