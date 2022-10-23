@@ -1,2 +1,2 @@
 # kidney-tumour-segmentation
-Comming Soon!
+Details Will Come Soon!
