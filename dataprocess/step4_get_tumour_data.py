@@ -83,6 +83,11 @@ case_list.remove('LICENSE')
 case_list.remove('kits.json')
 case_list = sorted(case_list)[:210]
 
+z_s, z_e = [], []
+x_s, x_e = [], []
+y_s, y_e = [], []
+
+
 for case in tqdm(case_list):
     img = nib.load(os.path.join(src_path, case, img_name))
     seg = nib.load(os.path.join(src_path, case, seg_name))
@@ -93,30 +98,31 @@ for case in tqdm(case_list):
     assert img.shape == seg.shape
     
     z_part, x_part, y_part = get_roi(img, seg)
-    
-    idx = 0
-    # extract roi/voi
-    for z1, z2 in z_part:
-        for x1, x2 in x_part:
-            for y1, y2 in y_part:
-                img_roi = img[z1:z2, x1:x2, y1:y2].astype('uint8')
-                seg_roi = seg[z1:z2, x1:x2, y1:y2].astype('uint8')
+    # print(z_part, x_part, y_part)
                 
-                # slice along axis z
-                for z in range(img_roi.shape[0]):
-                    img_roi_2d = img_roi[z].astype('uint8')
-                    seg_roi_2d = seg_roi[z].astype('uint8')
+#     idx = 0
+#     # extract roi/voi
+#     for z1, z2 in z_part:
+#         for x1, x2 in x_part:
+#             for y1, y2 in y_part:
+#                 img_roi = img[z1:z2, x1:x2, y1:y2].astype('uint8')
+#                 seg_roi = seg[z1:z2, x1:x2, y1:y2].astype('uint8')
+                
+#                 # slice along axis z
+#                 for z in range(img_roi.shape[0]):
+#                     img_roi_2d = img_roi[z].astype('uint8')
+#                     seg_roi_2d = seg_roi[z].astype('uint8')
                     
-                    # ignore seg without kidney
-                    if np.max(seg_roi) < 1:
-                        continue
+#                     # ignore seg without kidney
+#                     if np.max(seg_roi) < 1:
+#                         continue
 
-                    # transfer to PIL
-                    img_roi_2d = Image.fromarray(img_roi_2d)
-                    seg_roi_2d = Image.fromarray(seg_roi_2d)
-                    img_roi_2d = img_roi_2d.resize((256, 256), Image.ANTIALIAS)
-                    seg_roi_2d = seg_roi_2d.resize((256, 256), Image.NEAREST)
-                    # save training data
-                    img_roi_2d.save(os.path.join(img_save_dir, case+'_'+str(idx).zfill(4)+'.png'))
-                    seg_roi_2d.save(os.path.join(seg_save_dir, case+'_'+str(idx).zfill(4)+'.png'))
-                    idx += 1
+#                     # transfer to PIL
+#                     img_roi_2d = Image.fromarray(img_roi_2d)
+#                     seg_roi_2d = Image.fromarray(seg_roi_2d)
+#                     img_roi_2d = img_roi_2d.resize((256, 256), Image.ANTIALIAS)
+#                     seg_roi_2d = seg_roi_2d.resize((256, 256), Image.NEAREST)
+#                     # save training data
+#                     img_roi_2d.save(os.path.join(img_save_dir, case+'_'+str(idx).zfill(4)+'.png'))
+#                     seg_roi_2d.save(os.path.join(seg_save_dir, case+'_'+str(idx).zfill(4)+'.png'))
+#                     idx += 1

@@ -28,10 +28,10 @@ lr = 1e-3
 warmup_ratio = 0.3
 num_epochs = 90
 best_tumour_dice = 50
-pretrain = False
-pretrain_path = './work_dirs/ckpt_20221020/best_tumour.ckpt'
+pretrain = True
+pretrain_path = './work_dirs/ckpt_20221020/best_tumour_kidney_96_tumour_85.ckpt'
 
-ckpt_save_dir = os.path.join('work_dirs', 'ckpt_tumour_{}'.format(20221020))
+ckpt_save_dir = os.path.join('work_dirs', 'ckpt_tumour_{}'.format(20221029))
 log_file = os.path.join(ckpt_save_dir, 'tumour_log.txt')
 
 
@@ -74,32 +74,32 @@ train_net = CustomTrainOneStepCell(net_with_loss, optimizer)
 train_net.set_train()
 
 with open(log_file, 'w') as out:
-    for epoch in range(num_epochs):
-        step = 0
-        print("============== Starting Training ==============")
-        for d in train_dataset.create_dict_iterator():
-            # print(np.sum(d['label'][:, 0]==1), np.sum(d['label'][:,1]==1), np.sum(d['label'][:,2]==1))
-            # print(d['img'].shape, d['label'].shape)
+    # for epoch in range(num_epochs):
+#         step = 0
+#         print("============== Starting Training ==============")
+#         for d in train_dataset.create_dict_iterator():
+#             # print(np.sum(d['label'][:, 0]==1), np.sum(d['label'][:,1]==1), np.sum(d['label'][:,2]==1))
+#             # print(d['img'].shape, d['label'].shape)
 
-            l_dice, l_ce, l = train_net(d["img"], d["label"])
-            if step % 50 == 0:
-                time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                print(f"{time}, "
-                      f"Epoch: [{epoch} / {num_epochs}], "
-                      f"step: [{step} / {train_data_size}], "
-                      f"loss_dice: {l_dice}, "
-                      f"loss_ce: {l_ce}, "
-                      f"loss: {l}, "
-                      f"lr: {lr[epoch*train_data_size+step]}")
-                print(f"{time}, "
-                      f"Epoch: [{epoch} / {num_epochs}], "
-                      f"step: [{step} / {train_data_size}], "
-                      f"loss_dice: {l_dice}, "
-                      f"loss_ce: {l_ce}, "
-                      f"loss: {l}, "
-                      f"lr: {lr[epoch*train_data_size+step]}", file=out)                
-            step = step + 1
-        print("============== End Training ==============")
+#             l_dice, l_ce, l = train_net(d["img"], d["label"])
+#             if step % 50 == 0:
+#                 time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+#                 print(f"{time}, "
+#                       f"Epoch: [{epoch} / {num_epochs}], "
+#                       f"step: [{step} / {train_data_size}], "
+#                       f"loss_dice: {l_dice}, "
+#                       f"loss_ce: {l_ce}, "
+#                       f"loss: {l}, "
+#                       f"lr: {lr[epoch*train_data_size+step]}")
+#                 print(f"{time}, "
+#                       f"Epoch: [{epoch} / {num_epochs}], "
+#                       f"step: [{step} / {train_data_size}], "
+#                       f"loss_dice: {l_dice}, "
+#                       f"loss_ce: {l_ce}, "
+#                       f"loss: {l}, "
+#                       f"lr: {lr[epoch*train_data_size+step]}", file=out)                
+#             step = step + 1
+#         print("============== End Training ==============")
 
         print("============== Starting Evaluation ==============")
         total_dice = evaluation(net, num_classes)   

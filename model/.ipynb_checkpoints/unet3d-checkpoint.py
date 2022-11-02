@@ -17,7 +17,6 @@ import mindspore.nn as nn
 from mindspore import dtype as mstype
 from mindspore.ops import operations as P
 from model.unet3d_parts import Down, Up
-from model.model_utils.config import config
 
 class UNet3d_(nn.Cell):
     """
